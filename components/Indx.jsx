@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useState } from 'react';
 
 const Indx = ({ years, setYear, setQuarter, setWeek }) => {
-  return (
+  (
     <div className="z-50 flex-col items-center hidden w-48 h-full p-4 bg-gray-100 rounded-md shadow-xl min-w-min sm:flex">
       <h1 className="w-full mb-4 text-lg font-black text-left text-red-400 select-none">
         INDEX
@@ -13,6 +13,7 @@ const Indx = ({ years, setYear, setQuarter, setWeek }) => {
         return (
           <div key={Date.now() * Math.random()} className="w-full">
             <button
+              type="button"
               onClick={() => {
                 setSpanOpen(!spanOpen);
                 setYear(year.year);
@@ -23,15 +24,16 @@ const Indx = ({ years, setYear, setQuarter, setWeek }) => {
             </button>
             <span
               className={
-                "flex mt-1 flex-col space-y-1 w-full pl-2 invisible" +
-                (spanOpen ? "visible" : "")
+                `flex mt-1 flex-col space-y-1 w-full pl-2 invisible 
+                ${spanOpen ? 'visible' : ''}`
               }
             >
               <button
+                type="button"
                 onClick={() => {
-                  setQuarter("q1");
+                  setQuarter('q1');
 
-                  if (weeksOpen && weeksOpen == 1) {
+                  if (weeksOpen && weeksOpen === 1) {
                     setWeeksOpen(null);
                   } else {
                     setWeeksOpen(1);
@@ -43,27 +45,26 @@ const Indx = ({ years, setYear, setQuarter, setWeek }) => {
               </button>
               <span
                 className={
-                  " w-full hidden" +
-                  (weeksOpen && weeksOpen == 1 ? "flex flex-col" : "")
+                  `w-full hidden ${weeksOpen && weeksOpen === 1 ? 'flex flex-col' : ''}`
                 }
               >
-                {[...Array(9).keys()].map((i) => {
-                  return (
-                    <button
-                      key={Date.now() * Math.random()}
-                      onClick={() => setWeek("w" + (i + 1))}
-                      className="px-2 py-1 mb-1 text-sm font-bold bg-white rounded-md shadow-md"
-                    >
-                      {"WEEK " + (i + 1)}
-                    </button>
-                  );
-                })}
+                {[...Array(9).keys()].map((i) => (
+                  <button
+                    type="button"
+                    key={Date.now() * Math.random()}
+                    onClick={() => setWeek(`w${i + 1}`)}
+                    className="px-2 py-1 mb-1 text-sm font-bold bg-white rounded-md shadow-md"
+                  >
+                    {`WEEK ${i + 1}`}
+                  </button>
+                ))}
               </span>
               <button
+                type="button"
                 onClick={() => {
-                  setQuarter("q2");
+                  setQuarter('q2');
 
-                  if (weeksOpen && weeksOpen == 2) {
+                  if (weeksOpen && weeksOpen === 2) {
                     setWeeksOpen(null);
                   } else {
                     setWeeksOpen(2);
@@ -75,25 +76,23 @@ const Indx = ({ years, setYear, setQuarter, setWeek }) => {
               </button>
               <span
                 className={
-                  " w-full hidden" +
-                  (weeksOpen && weeksOpen == 2 ? "flex flex-col" : "")
+                  ` w-full hidden ${weeksOpen && weeksOpen === 2 ? 'flex flex-col' : ''}`
                 }
               >
-                {[...Array(9).keys()].map((i) => {
-                  return (
-                    <button
-                      key={Date.now() * Math.random()}
-                      onClick={() => setWeek("w" + (i + 1))}
-                      className="px-2 py-1 mb-1 text-sm font-bold bg-white rounded-md shadow-md"
-                    >
-                      {"WEEK " + (i + 1)}
-                    </button>
-                  );
-                })}
+                {[...Array(9).keys()].map((i) => (
+                  <button
+                    type="button"
+                    key={Date.now() * Math.random()}
+                    onClick={() => setWeek(`w${i + 1}`)}
+                    className="px-2 py-1 mb-1 text-sm font-bold bg-white rounded-md shadow-md"
+                  >
+                    {`WEEK ${i + 1}`}
+                  </button>
+                ))}
               </span>
               <button
                 onClick={() => {
-                  setQuarter("q3");
+                  setQuarter('q3');
 
                   if (weeksOpen && weeksOpen == 3) {
                     setWeeksOpen(null);
@@ -107,21 +106,19 @@ const Indx = ({ years, setYear, setQuarter, setWeek }) => {
               </button>
               <span
                 className={
-                  " w-full hidden" +
-                  (weeksOpen && weeksOpen == 3 ? "flex flex-col" : "")
+                  ` w-full hidden${
+                   weeksOpen && weeksOpen == 3 ? 'flex flex-col' : ''}`
                 }
               >
-                {[...Array(9).keys()].map((i) => {
-                  return (
-                    <button
-                      key={Date.now() * Math.random()}
-                      onClick={() => setWeek("w" + (i + 1))}
-                      className="px-2 py-1 mb-1 text-sm font-bold bg-white rounded-md shadow-md"
+                {[...Array(9).keys()].map((i) => (
+                  <button
+                    key={Date.now() * Math.random()}
+                    onClick={() => setWeek(`w${i + 1}`)}
+                    className="px-2 py-1 mb-1 text-sm font-bold bg-white rounded-md shadow-md"
                     >
-                      {"WEEK " + (i + 1)}
-                    </button>
-                  );
-                })}
+                    {`WEEK ${i + 1}`}
+                  </button>
+                  ))}
               </span>
             </span>
           </div>
